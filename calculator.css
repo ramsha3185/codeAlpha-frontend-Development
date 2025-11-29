@@ -1,0 +1,116 @@
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #F5F5F5; /* Light gray background */
+  font-family: Arial, sans-serif;
+}
+
+.calculator-container {
+  text-align: center;
+}
+
+.calculator-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2C3E50; /* Dark slate heading */
+  font-weight: bold;
+}
+
+.calculator {
+  background: #2C3E50; /* Dark slate gray */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+#display {
+  width: 100%;
+  height: 50px;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-align: right;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF; /* White text */
+  background: #34495E; /* Darker display background */
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  grid-gap: 12px;
+  justify-content: center;
+}
+
+/* Number buttons */
+button:not(.tall):not(.wide):not([onclick*="C"]):not([onclick*="="]):not([onclick*="+"]):not([onclick*="-"]):not([onclick*="*"]):not([onclick*="/"]) {
+  background: #1ABC9C; /* Teal */
+  color: white;
+}
+
+button:not(.tall):not(.wide):not([onclick*="C"]):not([onclick*="="]):not([onclick*="+"]):not([onclick*="-"]):not([onclick*="*"]):not([onclick*="/"]):hover {
+  background: #16A085; /* Brighter teal on hover */
+}
+
+/* Operator buttons */
+button[onclick*="+"],
+button[onclick*="-"],
+button[onclick*="*"],
+button[onclick*="/"] {
+  background: #E67E22; /* Coral / Orange */
+}
+
+button[onclick*="+"]:hover,
+button[onclick*="-"]:hover,
+button[onclick*="*"]:hover,
+button[onclick*="/"]:hover {
+  background: #D35400; /* Darker on hover */
+}
+
+/* Clear button */
+button[onclick*="C"] {
+  background: #C0392B; /* Crimson */
+}
+
+button[onclick*="C"]:hover {
+  background: #E74C3C;
+}
+
+/* Equal button */
+button.tall {
+  background: #2980B9; /* Royal Blue */
+}
+
+button.tall:hover {
+  background: #3498DB;
+}
+
+/* Wide buttons: 0 */
+.btn.wide {
+  grid-column: span 2;
+}
+
+.btn.tall {
+  grid-row: span 2;
+}
+
+/* Responsive */
+@media(max-width:400px){
+  .buttons {
+    grid-template-columns: repeat(4, 50px);
+    grid-gap: 8px;
+  }
+
+  #display {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
